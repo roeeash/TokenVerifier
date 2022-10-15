@@ -6,6 +6,9 @@
     <link rel="stylesheet" 
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
   type='text/css'>
+  
+  <!--load hide password-->
+  <script type="text/javascript" src="./scripts/hidePassword.js"></script>
 </head>
 
 <body onload='document.form1.text1.focus()'>
@@ -37,24 +40,7 @@
 
     <!--change password to text and vice versa-->
     <script>
-        function changeSetting(){
-            var input = document.getElementById("myInput");
-            var hide = document.getElementById("hide1");
-            var show = document.getElementById("hide2");
-
-            //if hidden
-            if(input.type === 'password'){
-                input.type = "text";
-                hide.style.display = "block";
-                show.style.display = "none";
-            }
-
-            else{
-                input.type = "password";
-                hide.style.display = "none";
-                show.style.display = "block";
-            }
-        }
+        
     </script>
 
     <!--html validity-->
