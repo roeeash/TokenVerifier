@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title> Hide/Show password</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+  type='text/css'>
+</head>
+
+<body onload='document.form1.text1.focus()'>
+
+    <!---form-->
+    <form name="form1" action="#"> 
+    <div class="form-box">
+        <h1> Login here</h1>
+        <div class="input-box">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" spellcheck="false" placeholder="Email ID" id="email-field"
+             onkeyup="validateEmail()">
+            <span id="email-error"></span>
+        </div>
+
+        <div class="input-box">
+            <i class="fa-solid fa-key"></i>
+            <input type="password" placeholder="Password" id="myInput">
+            <span class="eye" onclick="changeSetting()">
+                <i id="hide1" class="fa-solid fa-eye"></i>
+                <i id="hide2" class="fa-solid fa-eye-slash"></i>
+            </span>
+        </div>
+        <div class="button-box">
+        <div id="btn">
+        <button type="button" class="toggle-btn" id="login-btn" onclick="redirect()">LOGIN</button>
+        </div>
+    </div>
+
+    <!--change password to text and vice versa-->
+    <script>
+        function changeSetting(){
+            var input = document.getElementById("myInput");
+            var hide = document.getElementById("hide1");
+            var show = document.getElementById("hide2");
+
+            //if hidden
+            if(input.type === 'password'){
+                input.type = "text";
+                hide.style.display = "block";
+                show.style.display = "none";
+            }
+
+            else{
+                input.type = "password";
+                hide.style.display = "none";
+                show.style.display = "block";
+            }
+        }
+    </script>
+
+    <!--html validity-->
+    <script>
+        var emailField = document.getElementById("email-field");
+        var emailError = document.getElementById("email-error");
+        function validateEmail(){
+            if(!emailField.value.match(/^[A-Za-z\._\0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+                emailError.innerHTML = "Please enter a valid email";
+                return false;
+            }
+            else{
+                emailError.innerHTML ="";
+                return true;
+            }
+        }
+    </script>
+
+    <!--redirect to token verifier-->
+    <script type="text/javascript">
+        document.getElementById("login-btn").onclick = function () {
+            location.href = "TokenVerifier.html";
+        };
+    </script>
+
+    </div>
+    </form>
+</body>
+</html>
